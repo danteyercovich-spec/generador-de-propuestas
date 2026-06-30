@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Propuesta comercial de TaskIQ para la gestión de redes sociales de Hotel Botánico.">
+  <meta name="theme-color" content="#08080c">
+  <title>Propuesta para Hotel Botánico | TaskIQ</title>
+  <style>
+    :root {
+      --bg: #08080c;
+      --surface: #101017;
+      --surface-soft: #15151f;
+      --text: #f7f5ff;
+      --muted: #aaa7b6;
+      --violet: #8b5cf6;
+      --violet-soft: #c4b5fd;
+      --line: rgba(255, 255, 255, 0.1);
+      --glow: rgba(139, 92, 246, 0.28);
+      --radius: 24px;
+      --max-width: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(124, 58, 237, 0.18), transparent 30rem),
+        radial-gradient(circle at 8% 42%, rgba(139, 92, 246, 0.08), transparent 26rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 88px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid rgba(196, 181, 253, 0.4);
+      border-radius: 11px;
+      background: linear-gradient(145deg, rgba(139, 92, 246, 0.32), rgba(139, 92, 246, 0.08));
+      color: var(--violet-soft);
+      font-size: 15px;
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .nav-label,
+    .eyebrow {
+      color: var(--violet-soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(270px, 0.65fr);
+      gap: 64px;
+      align-items: end;
+      padding: 96px 0 88px;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 20px 0 28px;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--violet-soft);
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid rgba(196, 181, 253, 0.2);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(139, 92, 246, 0.16), rgba(255, 255, 255, 0.025));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card::after {
+      position: absolute;
+      right: -55px;
+      bottom: -75px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--glow);
+      filter: blur(48px);
+      content: "";
+    }
+
+    .hero-card small {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .hero-card .rule {
+      height: 1px;
+      margin: 24px 0;
+      background: var(--line);
+    }
+
+    section {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      margin: 15px 0 0;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .problem {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 240px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .card-number {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 40px;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(139, 92, 246, 0.14);
+      color: var(--violet-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .scope {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .scope-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 18px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .check {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--violet);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25);
+    }
+
+    .scope-item h3 {
+      margin: 1px 0 5px;
+      font-size: 18px;
+    }
+
+    .scope-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .why-main,
+    .why-side {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .why-main {
+      display: flex;
+      min-height: 390px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 38px;
+      background:
+        linear-gradient(145deg, rgba(139, 92, 246, 0.16), rgba(10, 10, 16, 0.8)),
+        var(--surface);
+    }
+
+    .why-main blockquote {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .why-main p {
+      max-width: 620px;
+      margin: 40px 0 0;
+      color: var(--muted);
+    }
+
+    .why-side {
+      display: grid;
+      align-content: center;
+      gap: 24px;
+      padding: 38px;
+      background: var(--surface);
+    }
+
+    .reason {
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .reason:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .reason strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .reason span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .investment {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid rgba(196, 181, 253, 0.26);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(255, 255, 255, 0.035));
+    }
+
+    .investment h2 {
+      margin-bottom: 17px;
+    }
+
+    .investment p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .price {
+      min-width: 250px;
+      text-align: right;
+    }
+
+    .price strong {
+      display: block;
+      font-size: clamp(58px, 7vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .price span {
+      color: var(--violet-soft);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .next-step {
+      padding: 96px 0 112px;
+      text-align: center;
+    }
+
+    .next-step h2 {
+      max-width: 760px;
+      margin: 18px auto 20px;
+    }
+
+    .next-step p {
+      max-width: 660px;
+      margin: 0 auto 34px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 28px;
+      border: 1px solid var(--violet);
+      border-radius: 999px;
+      background: var(--violet);
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 16px 44px rgba(139, 92, 246, 0.3);
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #9f75ff;
+      box-shadow: 0 20px 52px rgba(139, 92, 246, 0.4);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid var(--violet-soft);
+      outline-offset: 5px;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 34px 0 44px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .section-head,
+      .why-grid,
+      .investment {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 42px;
+        padding: 72px 0;
+      }
+
+      .section-head {
+        gap: 28px;
+      }
+
+      .problem {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .card-number {
+        margin-bottom: 28px;
+      }
+
+      .investment {
+        gap: 34px;
+      }
+
+      .price {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .nav {
+        min-height: 74px;
+      }
+
+      .nav-label {
+        display: none;
+      }
+
+      .hero {
+        padding: 58px 0 62px;
+      }
+
+      .hero h1 {
+        margin-top: 15px;
+        font-size: clamp(43px, 14vw, 64px);
+      }
+
+      section {
+        padding: 66px 0;
+      }
+
+      .scope {
+        grid-template-columns: 1fr;
+      }
+
+      .scope-item,
+      .card {
+        padding: 22px;
+      }
+
+      .why-main,
+      .why-side,
+      .investment {
+        padding: 27px;
+      }
+
+      .why-main {
+        min-height: 340px;
+      }
+
+      .price {
+        min-width: 0;
+      }
+
+      .next-step {
+        padding: 76px 0 86px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+
+    @media print {
+      body {
+        color: #111;
+        background: #fff;
+      }
+
+      .card,
+      .scope-item,
+      .why-main,
+      .why-side,
+      .investment,
+      .hero-card {
+        color: #111;
+        background: #fff;
+        border-color: #ddd;
+        box-shadow: none;
+      }
+
+      .hero-copy,
+      .section-intro,
+      .card p,
+      .scope-item p,
+      .why-main p,
+      .reason span,
+      .investment p,
+      .next-step p,
+      footer {
+        color: #444;
+      }
+
+      .button {
+        border-color: #111;
+        background: #111;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page">
+    <nav class="nav" aria-label="Cabecera de la propuesta">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">TQ</span>
+        <span>TaskIQ</span>
+      </div>
+      <span class="nav-label">Propuesta comercial · 2026</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero page">
+      <div>
+        <span class="eyebrow">Preparada para Hotel Botánico</span>
+        <h1>Una presencia digital <span>a la altura del hotel.</span></h1>
+        <p class="hero-copy">
+          Gestión estratégica de redes sociales para convertir cada publicación en una extensión
+          de la experiencia, el cuidado y la personalidad de Hotel Botánico.
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Resumen de la propuesta">
+        <small>Servicio propuesto</small>
+        <strong>Gestión de redes sociales</strong>
+        <div class="rule"></div>
+        <small>Inversión</small>
+        <strong>800 al mes</strong>
+      </aside>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">El desafío</span>
+            <h2>Que la calidad también se perciba antes de llegar.</h2>
+          </div>
+          <p class="section-intro">
+            Un hotel puede ofrecer una experiencia impecable y, aun así, perder oportunidades si
+            sus redes no transmiten esa misma calidad. La propuesta busca construir una presencia
+            constante, cuidada y reconocible que inspire confianza y mantenga al hotel presente.
+          </p>
+        </div>
+
+        <div class="problem">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>Comunicación dispersa</h3>
+            <p>Una identidad poco consistente dificulta que la marca se recuerde y se diferencie.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>Falta de continuidad</h3>
+            <p>Sin una planificación clara, las redes dependen de la urgencia y pierden regularidad.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>Valor poco visible</h3>
+            <p>Servicios, detalles y experiencias pueden pasar desapercibidos si no se narran bien.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Qué incluye</span>
+            <h2>Una gestión integral, con criterio y continuidad.</h2>
+          </div>
+          <p class="section-intro">
+            Un sistema de contenidos pensado para reducir la improvisación, ordenar el mensaje y
+            presentar Hotel Botánico con una voz coherente en cada punto de contacto.
+          </p>
+        </div>
+
+        <div class="scope">
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Estrategia de contenidos</h3>
+              <p>Definición de pilares, enfoques y temas alineados con la propuesta del hotel.</p>
+            </div>
+          </article>
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Planificación mensual</h3>
+              <p>Calendario organizado para sostener una comunicación regular y oportuna.</p>
+            </div>
+          </article>
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Redacción y narrativa</h3>
+              <p>Textos claros y atractivos que convierten atributos en historias memorables.</p>
+            </div>
+          </article>
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Diseño de publicaciones</h3>
+              <p>Piezas visuales consistentes con una estética cuidada, reconocible y profesional.</p>
+            </div>
+          </article>
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Programación y publicación</h3>
+              <p>Gestión del calendario para que el contenido se publique según lo previsto.</p>
+            </div>
+          </article>
+          <article class="scope-item">
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <h3>Análisis y optimización</h3>
+              <p>Seguimiento del rendimiento para aprender, ajustar y mejorar la comunicación.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Por qué TaskIQ</span>
+            <h2>Creatividad con sistema.</h2>
+          </div>
+          <p class="section-intro">
+            La propuesta combina sensibilidad de marca con inteligencia artificial, automatización
+            y procesos claros para trabajar con más orden, agilidad y capacidad de mejora.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-main">
+            <blockquote>
+              “No se trata solo de publicar. Se trata de construir una presencia que trabaje todos
+              los días para la marca.”
+            </blockquote>
+            <p>
+              TaskIQ crea sistemas para negocios: une estrategia, contenido, tecnología y formación
+              para que la comunicación sea más consistente y fácil de sostener.
+            </p>
+          </article>
+
+          <aside class="why-side">
+            <div class="reason">
+              <strong>Visión estratégica</strong>
+              <span>Cada pieza responde a un objetivo y a una narrativa común.</span>
+            </div>
+            <div class="reason">
+              <strong>Procesos eficientes</strong>
+              <span>Automatización e IA aplicadas con criterio para ganar agilidad.</span>
+            </div>
+            <div class="reason">
+              <strong>Acompañamiento cercano</strong>
+              <span>Comunicación clara, decisiones simples y mejora continua.</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="investment">
+          <div>
+            <span class="eyebrow">Inversión mensual</span>
+            <h2>Una presencia profesional, sostenida en el tiempo.</h2>
+            <p>
+              Gestión de redes sociales para Hotel Botánico, con planificación, creación,
+              publicación y optimización continua.
+            </p>
+          </div>
+          <div class="price" aria-label="Precio: 800 al mes">
+            <strong>800</strong>
+            <span>al mes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="next-step page">
+      <span class="eyebrow">Próximo paso</span>
+      <h2>Empecemos por ordenar el mensaje y construir el calendario.</h2>
+      <p>
+        El primer paso es una breve reunión para conocer prioridades, servicios clave y tono de
+        marca. Con esa base, se prepara la estrategia inicial y el primer ciclo de contenidos.
+      </p>
+      <a class="button" href="https://wa.me/543416090152" target="_blank" rel="noopener noreferrer">
+        Empezar por WhatsApp
+      </a>
+    </section>
+  </main>
+
+  <footer class="page">
+    <span><strong>TaskIQ</strong> · Sistemas inteligentes para negocios</span>
+    <span>IA · Automatización · Formación · Sistemas</span>
+  </footer>
+</body>
+</html>
